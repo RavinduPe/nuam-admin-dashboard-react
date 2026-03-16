@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-import React, { useState, useMemo } from 'react';
-=======
 import React, { useState, useMemo, useEffect } from "react";
->>>>>>> Stashed changes
 import {
   Search,
   RefreshCw,
@@ -31,11 +27,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-<<<<<<< Updated upstream
-=======
 import { useIpAddressManagement } from "@/hooks/useIpAddressManagement";
 
->>>>>>> Stashed changes
 // ============================================================================
 // TYPE DEFINITIONS
 // ============================================================================
@@ -74,155 +67,6 @@ interface NetworkStats {
   unauthorized: number;
   poolRange: string;
 }
-
-// ============================================================================
-// MOCK DATA
-// ============================================================================
-
-// const mockDevices: IPDevice[] = [
-//   {
-//     id: '1',
-//     ipAddress: '192.168.1.10',
-//     macAddress: '00:1A:2B:3C:4D:5E',
-//     deviceName: 'DESKTOP-USER01',
-//     hostType: 'PC',
-//     assignedBy: 'DHCP',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-15 08:30',
-//     lastSeen: '2026-01-22 14:45',
-//     riskStatus: 'Normal',
-//     macVendor: 'Intel Corporate',
-//     connectionDuration: '7 days 6 hours',
-//   },
-//   {
-//     id: '2',
-//     ipAddress: '192.168.1.11',
-//     macAddress: '00:1A:2B:3C:4D:5F',
-//     deviceName: 'LAPTOP-ADMIN',
-//     hostType: 'PC',
-//     assignedBy: 'Static',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-10 09:15',
-//     lastSeen: '2026-01-22 15:20',
-//     riskStatus: 'Normal',
-//     macVendor: 'Apple Inc.',
-//     connectionDuration: '12 days 6 hours',
-//   },
-//   {
-//     id: '3',
-//     ipAddress: '192.168.1.12',
-//     macAddress: '00:1A:2B:3C:4D:60',
-//     deviceName: 'IPHONE-USER02',
-//     hostType: 'Mobile',
-//     assignedBy: 'DHCP',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-20 10:00',
-//     lastSeen: '2026-01-22 15:18',
-//     riskStatus: 'Normal',
-//     macVendor: 'Apple Inc.',
-//     connectionDuration: '2 days 5 hours',
-//   },
-//   {
-//     id: '4',
-//     ipAddress: '192.168.1.100',
-//     macAddress: '00:1A:2B:3C:4D:61',
-//     deviceName: 'SRV-DATABASE',
-//     hostType: 'Server',
-//     assignedBy: 'Static',
-//     leaseStatus: 'Active',
-//     firstSeen: '2025-12-01 00:00',
-//     lastSeen: '2026-01-22 15:30',
-//     riskStatus: 'Normal',
-//     macVendor: 'Dell Inc.',
-//     connectionDuration: '52 days 15 hours',
-//   },
-//   {
-//     id: '5',
-//     ipAddress: '192.168.1.50',
-//     macAddress: '00:1A:2B:3C:4D:62',
-//     deviceName: 'SmartHome-Hub',
-//     hostType: 'IoT',
-//     assignedBy: 'DHCP',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-18 14:20',
-//     lastSeen: '2026-01-22 15:25',
-//     riskStatus: 'Normal',
-//     macVendor: 'Philips Electronics',
-//     connectionDuration: '4 days 1 hour',
-//   },
-//   {
-//     id: '6',
-//     ipAddress: '192.168.1.20',
-//     macAddress: '00:1A:2B:3C:4D:5E', // Duplicate MAC - conflict
-//     deviceName: 'UNKNOWN-DEVICE',
-//     hostType: 'Unknown',
-//     assignedBy: 'DHCP',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-22 14:00',
-//     lastSeen: '2026-01-22 15:30',
-//     riskStatus: 'Conflict',
-//     macVendor: 'Intel Corporate',
-//     connectionDuration: '1 hour 30 minutes',
-//   },
-//   {
-//     id: '7',
-//     ipAddress: '192.168.1.99',
-//     macAddress: '00:1A:2B:3C:4D:63',
-//     deviceName: 'SUSPICIOUS-DEVICE',
-//     hostType: 'Unknown',
-//     assignedBy: 'DHCP',
-//     leaseStatus: 'Active',
-//     firstSeen: '2026-01-22 14:15',
-//     lastSeen: '2026-01-22 15:22',
-//     riskStatus: 'Unauthorized',
-//     macVendor: 'Unknown',
-//     connectionDuration: '1 hour 7 minutes',
-//   },
-//   {
-//     id: '8',
-//     ipAddress: '192.168.1.25',
-//     macAddress: '00:1A:2B:3C:4D:64',
-//     deviceName: 'PRINTER-OFFICE',
-//     hostType: 'IoT',
-//     assignedBy: 'Static',
-//     leaseStatus: 'Expired',
-//     firstSeen: '2026-01-01 08:00',
-//     lastSeen: '2026-01-15 10:30',
-//     riskStatus: 'Normal',
-//     macVendor: 'Xerox Corporation',
-//     connectionDuration: '0 minutes',
-//   },
-// ];
-
-// const mockAlerts: IPAlert[] = [
-//   {
-//     id: '1',
-//     timestamp: '2026-01-22 15:15',
-//     type: 'Conflict',
-//     severity: 'High',
-//     description: 'IP conflict detected between DESKTOP-USER01 and UNKNOWN-DEVICE',
-//     affectedIPs: ['192.168.1.10', '192.168.1.20'],
-//     status: 'Active',
-//   },
-//   {
-//     id: '2',
-//     timestamp: '2026-01-22 14:45',
-//     type: 'Unauthorized',
-//     severity: 'High',
-//     description: 'Unauthorized device detected on network',
-//     affectedIPs: ['192.168.1.99'],
-//     status: 'Active',
-//   },
-//   {
-//     id: '3',
-//     timestamp: '2026-01-22 10:30',
-//     type: 'Expired',
-//     severity: 'Medium',
-//     description: 'DHCP lease expired for PRINTER-OFFICE',
-//     affectedIPs: ['192.168.1.25'],
-//     status: 'Active',
-//   },
-// ];
 
 // ============================================================================
 // COMPONENT: Network Summary Cards
@@ -576,20 +420,17 @@ const DeviceDetailsModal: React.FC<DeviceDetailsModalProps> = ({
 // ============================================================================
 
 export default function IPAddressManagement() {
-<<<<<<< Updated upstream
-  const [devices, setDevices] = useState<IPDevice[]>(mockDevices);
-=======
   const {
     networkStats,
     devices: wsDevices,
     alerts: wsAlerts,
-    updateSubnetMask,
+    updateNetworkSettings,
   } = useIpAddressManagement();
 
   const [subnet, setSubnet] = useState("");
+  const [newDeviceIP, setNewDeviceIP] = useState("");
 
   const [devices, setDevices] = useState<IPDevice[]>([]);
->>>>>>> Stashed changes
   const [selectedDevice, setSelectedDevice] = useState<IPDevice | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<"All" | "DHCP" | "Static">(
@@ -605,16 +446,6 @@ export default function IPAddressManagement() {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   // Network stats calculation
-<<<<<<< Updated upstream
-  const stats: NetworkStats = {
-    totalIPs: 254,
-    inUse: devices.length,
-    available: 254 - devices.length,
-    conflicts: devices.filter((d) => d.riskStatus === 'Conflict').length,
-    unauthorized: devices.filter((d) => d.riskStatus === 'Unauthorized').length,
-    poolRange: '192.168.1.0/24',
-  };
-=======
   const stats: NetworkStats = networkStats ?? {
     totalIPs: 0,
     inUse: 0,
@@ -624,11 +455,38 @@ export default function IPAddressManagement() {
     poolRange: "-",
   };
 
-  const handleSubnetUpdate = () => {
-    if (subnet.trim() !== "") {
-      updateSubnetMask(subnet.trim());
-      setSubnet(""); // clear input
+  const handleUpdateBoth = () => {
+    const mask = subnet.trim();
+    const ip = newDeviceIP.trim();
+
+    // Subnet validation
+    if (mask) {
+      const maskRegex =
+        /^(255|254|252|248|240|224|192|128|0)\.(255|254|252|248|240|224|192|128|0)\.(255|254|252|248|240|224|192|128|0)\.(0|128|192|224|240|248|252|254|255)$/;
+      const binary = mask
+        .split(".")
+        .map((n) => parseInt(n).toString(2).padStart(8, "0"))
+        .join("");
+      if (!maskRegex.test(mask) || !/^1*0*$/.test(binary)) {
+        return alert("Invalid subnet mask");
+      }
     }
+
+    // IP validation
+    if (ip) {
+      const ipv4Regex =
+        /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
+      if (!ipv4Regex.test(ip)) return alert("Invalid IP address");
+    }
+
+    if (!mask && !ip) return alert("Enter subnet mask or device IP");
+
+    // Send both values together
+    updateNetworkSettings(mask || undefined, ip || undefined);
+
+    // Clear inputs
+    setSubnet("");
+    setNewDeviceIP("");
   };
 
   useEffect(() => {
@@ -636,7 +494,6 @@ export default function IPAddressManagement() {
       setDevices(wsDevices);
     }
   }, [wsDevices]);
->>>>>>> Stashed changes
 
   // Filter and search logic
   const filteredDevices = useMemo(() => {
@@ -742,21 +599,31 @@ export default function IPAddressManagement() {
               Add Reservation
             </button>
           </div> */}
-          {/* Subnet Mask Update */}
-          <div className="mb-6 flex items-center gap-2">
-            <input
-              type="text"
-              placeholder="Enter subnet mask (e.g. 255.255.255.0)"
-              value={subnet}
-              onChange={(e) => setSubnet(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-slate-900"
-            />
-            <button
-              onClick={handleSubnetUpdate}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-            >
-              Update
-            </button>
+          <div>
+            <div className="mb-6 flex items-center gap-2">
+              <input
+                type="text"
+                placeholder="Enter subnet mask (e.g. 255.255.255.0)"
+                value={subnet}
+                onChange={(e) => setSubnet(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-slate-900"
+              />
+
+              <input
+                type="text"
+                placeholder="Enter device IP (e.g. 10.0.0.12)"
+                value={newDeviceIP}
+                onChange={(e) => setNewDeviceIP(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm text-slate-900"
+              />
+
+              <button
+                onClick={handleUpdateBoth}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+              >
+                Update
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -771,9 +638,9 @@ export default function IPAddressManagement() {
         <div className="lg:col-span-2">
           <IPUtilizationBar stats={stats} />
         </div>
-        <div>
+        {/* <div>
           <IPAlertsPanel alerts={mockAlerts} />
-        </div>
+        </div> */}
       </div>
 
       {/* IP Address Table */}
