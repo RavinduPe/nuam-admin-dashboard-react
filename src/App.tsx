@@ -5,6 +5,7 @@ import NetworkTopologyPage from './pages/Topology';
 import NetworkActivityPage from './pages/NetworkActivity';
 import IPAddressManagement from './pages/IPAddressManagement';
 import Reports from './pages/Reports';
+import SettingsPage from './pages/Settings';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/network-activity" element={<NetworkActivityPage />} />
           <Route path="/ip-management" element={<IPAddressManagement />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
