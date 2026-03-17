@@ -27,11 +27,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { useIpAddressManagement } from "@/hooks/useIpAddressManagement"
-
-// ============================================================================
-// TYPE DEFINITIONS
-// ============================================================================
+import { useIpAddressManagement } from "@/hooks/useIpAddressManagement";
 
 interface IPDevice {
   id: string;
