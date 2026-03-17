@@ -25,7 +25,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
+
+import { useIpAddressManagement } from "@/hooks/useIpAddressManagement";
+
+import { useIpAddressManagement } from "@/hooks/useIpAddressManagement"
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -418,11 +422,11 @@ const DeviceDetailsModal: React.FC<DeviceDetailsModalProps> = ({
 // ============================================================================
 
 export default function IPAddressManagement() {
-  const [devices, setDevices] = useState<IPDevice[]>(mockDevices);
   const {
     networkStats,
     devices: wsDevices,
     alerts: wsAlerts,
+    updateNetworkSettings,
   } = useIpAddressManagement();
 
   const [subnet, setSubnet] = useState("");
